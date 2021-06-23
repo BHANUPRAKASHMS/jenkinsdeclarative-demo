@@ -5,9 +5,8 @@ pipeline {
                     echo 'This is first step for git repo pull'
                 }
         
-                stage ('Build'){
-                    steps {
-                        input ('do you want to proceed to do code quaity')
+                stage ('Build') {
+                    steps {                        
                         echo 'This stage will do the code build'
                     }
                 }
@@ -21,13 +20,13 @@ pipeline {
                 }
                 stage ('Test') {
                             parallel {
-                                stage('Unit Test'){
+                                stage ('Unit Test'){
                                         steps {
                                             echo ' Running unit tests.....'
                                            }
                                         }
                                 }
-                                stage('Integration Test') {
+                                stage ('Integration Test') {
                                     agent {
                                         docker {
                                             reuseNode false
