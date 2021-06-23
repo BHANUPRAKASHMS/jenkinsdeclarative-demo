@@ -2,7 +2,9 @@ pipeline {
     agent any 
         stages {
                 stage('pull code') {
-                    echo 'This is first step for git repo pull'
+                    steps {
+                        echo 'This is first step for git repo pull'
+                    }                    
                 }
         
                 stage ('Build') {
