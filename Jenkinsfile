@@ -18,14 +18,17 @@ pipeline {
                     }
                 }
                 stage ('Artifacts') {
-                    echo 'push the artifact to AMS'
+                    steps {
+                         echo 'push the artifact to AMS'
+                    }
+                   
                 }
                 stage ('Test') {
                             parallel {
-                                stage ('Unit Test'){
+                                stage ('Unit Test') {
                                         steps {
                                             echo ' Running unit tests.....'
-                                           }
+                                                }
                                         }
                                 }
                                 stage ('Integration Test') {
